@@ -12,7 +12,6 @@ public class SortingMethod
             }
         }
     }
-
     public static void selectionSort(int[] arr)
     {
         int swap = 0;
