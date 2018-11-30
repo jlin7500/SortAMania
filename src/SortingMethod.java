@@ -1,12 +1,12 @@
 public class SortingMethod
 {
-    public static void bubbleSort(String[] arr)
+    public static void bubbleSort(int[] arr)
     {
         for( int i = 0; i < arr.length; i++)
         {
-            if( arr[i].compareTo(arr[i+1]) > 0)
+            if( arr[i] - (arr[i+1]) > 0)
             {
-                String bubble = arr[i];
+                int bubble = arr[i];
                 arr[i] = arr[i+1];
                 arr[i+1] = bubble;
             }
