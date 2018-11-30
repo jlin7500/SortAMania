@@ -48,13 +48,24 @@ public class Team14SortCompetition extends SortCompetition
         }
         return arr;
     }
+    public static int findMedian(int [] arr)
+    {
+        if ( arr.length % 2 == 0)
+        {
+            return arr[((arr.length/2 + (arr.length / 2 + 1 ))/2)];
+        }
+        else
+        {
+            return arr[arr.length /2];
+        }
+    }
 
     @Override
     public int challengeOne(int[] arr)
     {
-        //selectionSort(arr);
-        //bubbleSort(arr);
-        //return (arr[4999] + arr[5000]) / 2;
+        selectionSort(arr);
+        bubbleSort(arr);
+        return findMedian(arr);
     }
     public void selectionSort(int arr[])
     {
@@ -93,7 +104,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeTwo(String[] arr, String query)
     {
-        
+
         return 0;
     }
 

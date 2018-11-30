@@ -25,7 +25,7 @@ public class Runner
                 arr[i+1] = bubble;
             }
         }
-        int mid =  arr[5000];
+        int mid =  arr[1000];
         return mid;
     }
     public static int[] arrayGenerator(int number)
