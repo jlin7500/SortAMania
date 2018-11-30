@@ -2,13 +2,10 @@ public class Runner
 {
     public static void main(String [] args)
     {
-
-        long time = System.currentTimeMillis();
-
-        time = System.currentTimeMillis() - time;
-        System.out.println(time);
+        SortCompetition team1 = new Team14SortCompetition();
+        int[] arrayGenerator = arrayGenerator(10000);
     }
-    public int[] arrayGenerator(int number)
+    public static int[] arrayGenerator(int number)
     {
         int[] arr = new int[number];
         for ( int i = 0; i < number; i++)
