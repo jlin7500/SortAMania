@@ -101,6 +101,18 @@ public class Team14SortCompetition extends SortCompetition
                     arr[j+1] = temp;
                 }
     }
+    public void mostlySorted(int [] arr)
+    {
+        int n = 75000;
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (arr[j] > arr[j+1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+    }
     @Override
     public int challengeTwo(String[] arr, String query)
     {
@@ -109,8 +121,11 @@ public class Team14SortCompetition extends SortCompetition
     }
 
     @Override
-    public int challengeThree(int[] arr) {
-        return 0;
+    public int challengeThree(int[] arr)
+    {
+        mostlySorted(arr);
+        bubbleSort(arr);
+        return findMedian(arr);
     }
 
     @Override

@@ -3,12 +3,13 @@ public class Runner
     public static void main(String [] args)
     {
         SortCompetition team14 = new Team14SortCompetition();
-        int[] arrayGenerator = arrayGenerator(10000);
+        int[] arrayGenerator = arrayGenerator(100000);
 
         System.out.println("Unsorted");
 
         long time = System.currentTimeMillis();
-        int median = team14.challengeOne(arrayGenerator);
+        int median = team14.challengeThree(arrayGenerator);
+
         time = System.currentTimeMillis() - time;
         System.out.println("Challenege One time taken : " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);
@@ -33,8 +34,33 @@ public class Runner
         int[] arr = new int[number];
         for ( int i = 0; i < number; i++)
         {
-            arr[i] = (int) (Math.random()*10000);
+            arr[i] = (int) (Math.random()*100000);
         }
+
         return arr;
     }
+    public void mostlySorted(int [] arr)
+    {
+        int n = 75000;
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (arr[j] > arr[j+1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+    }
+    /*public static int[] randomString(int length)
+    {
+        int[] arr = new int[10000];
+        for ( int i = 0; i < length; i++)
+        {
+           for ( int j = 0; j < 5; j++)
+           {
+               arr[i] +=
+           }
+        }
+        return arr;
+    }*/
 }
