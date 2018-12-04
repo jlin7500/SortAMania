@@ -48,6 +48,7 @@ public class Team14SortCompetition extends SortCompetition
         }
         return arr;
     }
+
     public static int findMedian(int [] arr)
     {
         if ( arr.length % 2 == 0)
@@ -113,6 +114,45 @@ public class Team14SortCompetition extends SortCompetition
                     arr[j+1] = temp;
                 }
     }
+
+    public  int bubbleSort20(int [][] arr)
+    {
+        int n = 1000;
+        int [] medians = new int [1000];
+        int mid = 0;
+        for(int i = 0 ; i < 1000; i++)
+        {
+            for(int j = 0; j < 1000; j++)
+            {
+                if(arr[i][j-1] > arr[i][j] )
+                {
+                    int temp = arr[i][j-1];
+                    arr[i][j-1] = arr[i][j];
+                    arr[i][j] = temp;
+                }
+
+            }
+            if ( arr[i].length % 2 == 0)
+            {
+                medians[mid] = arr[i][((arr.length/2 + (arr.length / 2 + 1 ))/2)];
+                mid++;
+            }
+            else
+            {
+                medians[mid] = arr[i][arr.length /2];
+                mid ++;
+            }
+            if(medians[i] > medians[i +1 ] )
+            {
+                int temp = medians[i];
+                medians[i] = medians[i+1];
+                medians[i] = temp;
+
+            }
+        }
+
+       return findMedian(medians);
+    }
     @Override
     public int challengeTwo(String[] arr, String query)
     {
@@ -130,7 +170,7 @@ public class Team14SortCompetition extends SortCompetition
 
     @Override
     public int challengeFour(int[][] arr) {
-        return 0;
+        return bubbleSort20(arr);
     }
 
     @Override

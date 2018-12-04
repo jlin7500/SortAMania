@@ -22,6 +22,13 @@ public class Runner
         System.out.println("Median equals: " + median2);
         System.out.println("Sorted");
 
+        long time4 = System.currentTimeMillis();
+        int median4 = team14.challengeFour(doubleBrack(1000));
+        time4 = System.currentTimeMillis() - time4;
+        System.out.println("Challenge Two time taken : " + time4 * 0.001 + "Seconds");
+        System.out.println("Median equals: " + median4);
+        System.out.println("Sorted");
+
         
     }
     public int challenge14Data(int [] arr)
@@ -58,6 +65,18 @@ public class Runner
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
                 }
+    }
+    public static int [][]  doubleBrack(int num)
+    {
+        int[][] arr = new int[num][num];
+        for ( int i = 0; i < num; i++)
+        {
+            for( int j = 0; j < num; j++)
+            {
+                arr[i][j] = (int) (Math.random()*100000);
+            }
+        }
+        return arr;
     }
     /*public static int[] randomString(int length)
     {
