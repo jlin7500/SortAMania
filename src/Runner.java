@@ -8,12 +8,21 @@ public class Runner
         System.out.println("Unsorted");
 
         long time = System.currentTimeMillis();
-        int median = team14.challengeThree(arrayGenerator);
+        int median = team14.challengeOne(arrayGenerator);
 
         time = System.currentTimeMillis() - time;
         System.out.println("Challenege One time taken : " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);
         System.out.println("Sorted");
+
+        long time2 = System.currentTimeMillis();
+        int median2 = team14.challengeThree(arrayGenerator);
+        time2 = System.currentTimeMillis() - time2;
+        System.out.println("Challenge Two time taken : " + time2 * 0.001 + "Seconds");
+        System.out.println("Median equals: " + median2);
+        System.out.println("Sorted");
+
+        
     }
     public int challenge14Data(int [] arr)
     {
@@ -36,7 +45,6 @@ public class Runner
         {
             arr[i] = (int) (Math.random()*100000);
         }
-
         return arr;
     }
     public void mostlySorted(int [] arr)
