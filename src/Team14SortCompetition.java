@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Team14SortCompetition extends SortCompetition
 {
     public int[] arrayGenerator(int number)
@@ -154,11 +157,83 @@ public class Team14SortCompetition extends SortCompetition
        return findMedian(medians);
     }
     @Override
-    public int challengeTwo(String[] arr, String query)
-    {
 
-        return 0;
-    }
+        public int challengeTwo(String[] arr, String query)
+        {
+            mergeSortStrings(arr);
+            if(Arrays.asList(arr).contains(query))
+            {
+                List<String> challenger2 = Arrays.asList(arr);
+                return (challenger2.indexOf(query));
+            }
+            else
+            {
+                return (-1);
+            }
+        }
+
+        /**
+         * Merge Sort for Strings
+         * @param challenge5 Array to be sorted.
+         */
+        public static void mergeSortStrings(String[] challenge5)
+        {
+            int n = challenge5.length;
+            String[] tempc = new String[n];
+            mergeSortStringHelper(challenge5, 0,n-1,tempc);
+        }
+
+
+        public static void mergeSortStringHelper(String[] challenge5, int left, int right, String[] temp)
+        {
+            if(left < right)
+            {
+                int middlec = (left + right) / 2;
+                mergeSortStringHelper(challenge5, left, middlec, temp);
+                mergeSortStringHelper(challenge5, middlec + 1, right, temp);
+                mergeStrings(challenge5, left, middlec, right, temp);
+            }
+        }
+
+        public static void mergeStrings(String[] challenge5, int left, int middle, int right, String[] temp)
+        {
+            for(int i = left; i <= right; i++)
+            {
+                temp[i] = challenge5[i];
+            }
+            int i = left;
+            int j = middle + 1;
+            int k = left;
+            while(i <= middle && j <= right)
+            {
+                if(temp[i].compareTo(temp[j]) < 0)
+                {
+                    challenge5[k] = temp[i];
+                    i++;
+                }
+                else
+                {
+                    challenge5[k] = temp[j];
+                    j++;
+                }
+                k++;
+            }
+            while(i <= middle)
+            {
+                challenge5[k] = temp[i];
+                k++;
+                i++;
+            }
+            while(j <= right)
+            {
+                challenge5[k] = temp[j];
+                k++;
+                j++;
+            }
+        }
+
+
+
 
     @Override
     public int challengeThree(int[] arr)
@@ -174,12 +249,82 @@ public class Team14SortCompetition extends SortCompetition
     }
 
     @Override
-    public int challengeFive(Comparable[] arr, Comparable query) {
-        return 0;
+    public int challengeFive(Comparable[] challenge5, Comparable query)
+    {
+        mergeSortC(challenge5);
+        if(Arrays.asList(challenge5).contains(query))
+        {
+            List<Comparable> challenger5 = Arrays.asList(challenge5);
+            return (challenger5.indexOf(query));
+        }
+        else
+        {
+            return (-1);
+        }
+    }
+
+    /**
+     * Merge sort for comparable.
+     * @param challenge5 Array to be inputted.
+     */
+    public static void mergeSortC(Comparable[] challenge5)
+    {
+        int n = challenge5.length;
+        Comparable[] temp = new Comparable[n];
+        mergeSortC(challenge5, 0,n-1,temp);
+    }
+
+
+    public static void mergeSortC(Comparable[] challenge5, int left, int right, Comparable[] temp)
+    {
+        if(left < right)
+        {
+            int mid = (left + right) / 2;
+            mergeSortC(challenge5, left, mid, temp);
+            mergeSortC(challenge5, mid + 1, right, temp);
+            mergeStringsC(challenge5, left, mid, right, temp);
+        }
+    }
+    public static void mergeStringsC(Comparable[] thing, int left, int middle, int right, Comparable[] temp)
+    {
+        for(int i = left; i <= right; i++)
+        {
+            temp[i] = thing[i];
+        }
+        int i = left;
+        int j = middle + 1;
+        int k = left;
+        while(i <= middle && j <= right)
+        {
+            if(temp[i].compareTo(temp[j]) < 0)
+            {
+                thing[k] = temp[i];
+                i++;
+            }
+            else
+            {
+                thing[k] = temp[j];
+                j++;
+            }
+            k++;
+        }
+        while(i <= middle)
+        {
+            thing[k] = temp[i];
+            k++;
+            i++;
+        }
+        while(j <= right)
+        {
+            thing[k] = temp[j];
+            k++;
+            j++;
+        }
     }
 
     @Override
-    public String greeting() {
+    public String greeting()
+    {
         return null;
     }
 }

@@ -11,7 +11,7 @@ public class Runner
         int median = team14.challengeOne(arrayGenerator);
 
         time = System.currentTimeMillis() - time;
-        System.out.println("Challenege One time taken : " + time * 0.001 + " Seconds");
+        System.out.println("Challenege One time taken : " + time * 0.001 + "Seconds");
         System.out.println("Median equals: " + median);
         System.out.println("Sorted");
 
@@ -28,6 +28,9 @@ public class Runner
         System.out.println("Challenge Two time taken : " + time4 * 0.001 + "Seconds");
         System.out.println("Median equals: " + median4);
         System.out.println("Sorted");
+
+        long time5 = System.currentTimeMillis();
+        int median5 = team14.challengeFive();
 
         
     }
